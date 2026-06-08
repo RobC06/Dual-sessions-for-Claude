@@ -109,6 +109,33 @@ directly, tied to whichever profile is active:
 Repeat in the other profile. You'll get two app icons. The scripts in this repo
 do the same thing but are scriptable, portable, and version-controlled.
 
+Installed apps use the **Claude logo** instead of the generic Chrome icon, and
+(unlike the `--app=` script windows) they produce a real shortcut whose icon you
+*can* customize — see below.
+
+---
+
+## Custom taskbar icons (Windows)
+
+Both installed apps show the same Claude logo, so to tell **Personal** from
+**Business** at a glance, give them distinct icons. Ready-made ones live in
+[`icons/`](./icons): a blue **"P"** ([`claude-personal.ico`](./icons/claude-personal.ico))
+and a green **"B"** ([`claude-business.ico`](./icons/claude-business.ico)).
+(The matching `.png` files are just previews.)
+
+1. Save the two `.ico` files somewhere permanent, e.g. `Documents\Claude Icons\`.
+   Don't leave them in Downloads — if the file moves, the icon breaks.
+2. Press **Win+R**, paste this, press Enter:
+   ```
+   %AppData%\Microsoft\Windows\Start Menu\Programs\Chrome Apps
+   ```
+3. Right-click a **Claude** shortcut → **Properties** → **Change Icon…** →
+   **Browse** → pick the `.ico` → **OK** → **Apply**. Repeat for the other.
+4. **Drag the shortcut onto the taskbar** to pin it with the new icon. If you'd
+   already pinned the plain version, **unpin** it first, then pin this one.
+
+> Set the icon *before* pinning — a pin won't update its icon afterward.
+
 ---
 
 ## Troubleshooting
@@ -116,6 +143,8 @@ do the same thing but are scriptable, portable, and version-controlled.
 - **It opens the wrong account / a fresh login.** The `PROFILE` value is wrong.
   Re-check `chrome://version` → **Profile Path** for that profile and copy the
   *exact* last folder name (it's case- and space-sensitive, e.g. `Profile 1`).
+  Note the second profile is often `Profile 2` (not `Profile 1`) — the numbering
+  reflects Chrome's creation order, not how many profiles you currently have.
 - **Both launchers open the same account.** Both files have the same `PROFILE`
   value — give each its own profile's folder name.
 - **"chrome is not recognized" (Windows).** Chrome isn't on your PATH. Edit the
