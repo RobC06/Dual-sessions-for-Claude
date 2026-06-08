@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Claude Business
+Comment=Open Claude in your business Chrome profile
+# Set --profile-directory to the profile's INTERNAL folder name, NOT the
+# display name. Find it at chrome://version -> "Profile Path" (use the last
+# folder, e.g. Default, "Profile 1", ...). If your binary isn't google-chrome,
+# try google-chrome-stable, chromium, or chromium-browser.
+Exec=google-chrome --profile-directory="Profile 1" --app="https://claude.ai"
+Icon=google-chrome
+Terminal=false
+Categories=Network;
